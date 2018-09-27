@@ -1,0 +1,102 @@
+<h2 mat-dialog-title>Add Alert</h2>
+<mat-dialog-content>
+    <div *ngIf="isProcessing" style="margin:0 auto;">
+        <mat-spinner></mat-spinner>
+      </div>
+  <div *ngIf="!isProcessing" class="example-container">
+
+    <!-- <mat-form-field>
+      <mat-select placeholder="Avatar" [(ngModel)]="user.avatar">
+        <mat-select-trigger>
+          <mat-icon svgIcon="{{user.avatar}}"></mat-icon> {{ user.avatar }}
+        </mat-select-trigger>
+        <mat-option *ngFor="let avatar of avatars" [value]="avatar">
+          <mat-icon svgIcon="{{avatar}}"></mat-icon> {{ avatar }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field> -->
+
+    <!-- <mat-form-field>
+      <input matInput placeholder="Name" [formControl]="name" [(ngModel)]="owner" required>
+      <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field> -->
+
+    <mat-form-field>
+      <input matInput placeholder="Alert Id" [formControl]="productName" [(ngModel)]="product.weatherAlertID" required>
+      <mat-error *ngIf="productName.invalid">{{getErrorMessageForProductName()}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput  name="severity" #ownership="ngModel" placeholder="Severity" [(ngModel)]="product.severity" required>
+      <!-- <mat-error *ngIf="batch.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput name="disasterType" #disasterType="ngModel" placeholder="Disatser Type" [(ngModel)]="product.disasterType" required>
+      <!-- <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput name="disasterOrigin" #disasterOrigin="ngModel" placeholder="Disaster Origin" [(ngModel)]="product.disasterOrigin" required>
+      <!-- <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput name="impactedArea" #impactedArea="ngModel" placeholder="Impact Origin" [(ngModel)]="product.impactedArea" required>
+      <!-- <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Forecast Date" [(ngModel)]="product.imdDateTime">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput name="imdComment" #imdComment="ngModel" placeholder="IMD Comment" [(ngModel)]="product.imdComment" required>
+      <!-- <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+
+    <!-- <mat-form-field>
+      <input matInput [matDatepicker]="picker2" placeholder="State DateTime" [(ngModel)]="product.stateDateTime">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field> -->
+
+    <!-- <mat-form-field>
+      <input matInput name="stateComment" #stateComment="ngModel" placeholder="State Comment" [(ngModel)]="product.stateComment" required> -->
+      <!-- <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error> -->
+    <!-- </mat-form-field> -->
+
+    <!-- <mat-form-field>
+      <input matInput name="stateStatus" #stateStatus="ngModel" placeholder="State Status" [(ngModel)]="product.stateStatus" required> -->
+      <!-- <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error> -->
+    <!-- </mat-form-field> -->
+
+    <!-- <mat-form-field>
+      <input matInput [matDatepicker]="picker3" placeholder="Central DateTime" [(ngModel)]="product.centralDateTime">
+      <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+      <mat-datepicker #picker3></mat-datepicker>
+    </mat-form-field> -->
+
+    <!-- <mat-form-field>
+      <input matInput name="centralComment" #centralComment="ngModel" placeholder="Central Comment" [(ngModel)]="product.centralComment" required> -->
+      <!-- <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error> -->
+    <!-- </mat-form-field> -->
+
+    <!-- <mat-form-field>
+      <input matInput name="centralStatus" #centralStatus="ngModel" placeholder="Central Status" [(ngModel)]="product.centralStatus" required> -->
+      <!-- <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error> -->
+    <!-- </mat-form-field> -->
+
+  </div>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button color="primary" (click)="save()">
+    <mat-icon>save</mat-icon> Save
+  </button>
+  <button mat-button color="primary" (click)="dismiss()">
+    <mat-icon>cancel</mat-icon> Cancel
+  </button>
+</mat-dialog-actions>

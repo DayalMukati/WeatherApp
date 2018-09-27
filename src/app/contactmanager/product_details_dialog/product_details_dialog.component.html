@@ -1,0 +1,63 @@
+<h2 mat-dialog-title>Acknowledge Alert</h2>
+<mat-dialog-content>
+
+
+    <div *ngIf="isProcessing" style="margin:0 auto;">
+        <mat-spinner></mat-spinner>
+      </div>
+  <div class="example-container" *ngIf="!isProcessing">
+    
+    <mat-form-field>
+      <input matInput name="status" placeholder="Weather Alert" #status="ngModel" [(ngModel)]="product.weatherAlertID" disabled required>
+      <!-- <mat-error *ngIf="name.status">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Severity" [(ngModel)]="product.severity" disabled required>
+      <!-- <mat-error *ngIf="manufacturerName.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Disaster Type" [(ngModel)]="product.disasterType" disabled required>
+      <!-- <mat-error *ngIf="manufacturerName.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Disaster Origin" [(ngModel)]="product.disasterOrigin" required disabled>
+      <!-- <mat-error *ngIf="manufacturerName.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Impacted Area" [(ngModel)]="product.impactedArea" required disabled>
+      <!-- <mat-error *ngIf="manufacturerName.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+
+    <!-- <mat-form-field>
+      <input matInput [matDatepicker]="picker2" placeholder="State DateTime" [(ngModel)]="product.stateDateTime">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field> -->
+
+    <mat-form-field>
+      <input matInput name="stateComment" #stateComment="ngModel" placeholder=" Comment" [(ngModel)]="product.stateComment" required>
+      <!-- <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput name="stateStatus" #stateStatus="ngModel" placeholder=" Status" [(ngModel)]="product.stateStatus" required>
+      <!-- <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+
+  </div>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button color="primary" (click)="approve('1')">
+    <mat-icon>save</mat-icon> Acknowledge
+  </button>
+  <!-- <button mat-button color="primary" (click)="approve('2')">
+    <mat-icon>cancel</mat-icon> Reject
+  </button> -->
+  <button mat-button color="primary" (click)="dismiss()">
+    <mat-icon>cancel</mat-icon> Cancel
+  </button>
+
+</mat-dialog-actions>

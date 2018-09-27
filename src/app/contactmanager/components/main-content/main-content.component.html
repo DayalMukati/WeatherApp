@@ -1,0 +1,61 @@
+<div *ngIf="!owner">
+  <mat-spinner></mat-spinner>
+</div>
+
+
+
+<!-- <div *ngIf="title == 'app works!'; else login"> -->
+
+<div *ngIf="owner">
+  <mat-card>
+    <mat-card-header>
+      <!-- <mat-icon mat-card-avatar svgIcon="{{user.avatar}}"></mat-icon> -->
+      <mat-card-title>
+
+        <h2>
+
+            <!-- <ng-container *ngIf="owner=='Jim';else second"> India Meteorological Department</ng-container>
+            <ng-template #second>
+                <ng-container *ngIf="owner=='Avni';else third"></ng-container>
+            </ng-template>
+            <ng-template #third></ng-template> -->
+
+          <div *ngIf="owner=='Jim'">
+            India Meteorological Department
+          </div>
+          <div *ngIf="owner=='Avni'">
+              State Agency
+          </div>
+          <div *ngIf="owner=='Amit'">
+              Central Agency
+          </div>
+          <!-- <ng-template #login *ngIf="owner=='Avni'; else login2">State Agency</ng-template>
+          <ng-template #login2>Central Agency</ng-template> -->
+        </h2>
+        <!-- <button (click)="refreshList()" mat-raised-button>Refresh</button> -->
+
+      </mat-card-title>
+      <!-- <mat-card-subtitle>
+        Birthday {{ user.birthDate | date:'d LLLL' }}
+      </mat-card-subtitle> -->
+    </mat-card-header>
+    <mat-card-content>
+      <mat-tab-group>
+        <mat-tab label="Alert List">
+          <app-notes></app-notes>
+        </mat-tab>
+        <!-- <mat-tab label="Approved">
+          <p>
+            <app-ApprovedProduct></app-ApprovedProduct>
+          </p>
+        </mat-tab>
+        <mat-tab label="Rejected">
+          <p>
+            <app-RejectedProduct></app-RejectedProduct>
+          </p>
+        </mat-tab> -->
+
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
+</div>

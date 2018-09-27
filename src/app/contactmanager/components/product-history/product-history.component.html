@@ -1,0 +1,102 @@
+<h6 class="text-center">Alert History</h6>
+
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card blue-grey lighten-5">
+      <div class="card-content">
+        <span class="card-title">Alert Details</span>
+        <form #productForm="ngForm" (ngSubmit)="getProduct(productForm)">
+          <div class="form-group">
+            <input class="form-control" name="weatherAlertID" #weatherAlertID="ngModel" [(ngModel)]="product.weatherAlertID" placeholder="Alert Id">
+          </div>
+          <h2></h2>
+          <div class="form-group">
+            <button class="btn btn-default" type="submit" [disabled]="!productForm.valid">
+              <i class="fa fa-floppy-o"></i>
+              Submit</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<mat-table #table [dataSource]="dataSource">
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+  <ng-container matColumnDef="alert_id">
+    <mat-header-cell *matHeaderCellDef > Alert Id </mat-header-cell>
+    <mat-cell *matCellDef="let product"> {{product.weatherAlertID }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="sevarity">
+    <mat-header-cell *matHeaderCellDef > Severity </mat-header-cell>
+    <mat-cell *matCellDef="let product"> {{product.severity}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="forecast_date_time">
+    <mat-header-cell *matHeaderCellDef > Forecast Date/Time </mat-header-cell>
+    <mat-cell *matCellDef="let product"> {{product.imdDateTime | date:'yyyy-MM-dd hh:ss'}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="state_comment">
+    <mat-header-cell *matHeaderCellDef > State Comment </mat-header-cell>
+    <mat-cell *matCellDef="let product"> {{product.stateComment}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="state_status">
+    <mat-header-cell *matHeaderCellDef > State Status </mat-header-cell>
+    <mat-cell *matCellDef="let product"> {{product.stateStatus}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="central_comment">
+    <mat-header-cell *matHeaderCellDef > Central Comment </mat-header-cell>
+    <mat-cell *matCellDef="let product"> {{product.centralComment}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="central_status">
+    <mat-header-cell *matHeaderCellDef > Central Status </mat-header-cell>
+    <mat-cell *matCellDef="let product"> {{product.centralStatus}} </mat-cell>
+  </ng-container>
+<!-- 
+  <ng-container matColumnDef="alert_id">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Alert ID </mat-header-cell>
+    <mat-cell *matCellDef="let product"> {{product.weatherAlertID }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="sevarity">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Severity </mat-header-cell>
+    <mat-cell *matCellDef="let product"> {{product.sevarity}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="forecast_date_time">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Forecast DateTime </mat-header-cell>
+    <mat-cell *matCellDef="let product"> {{product.imdDateTime | date:'yyyy-MM-dd hh:ss'}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="state_comment">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> State Comment </mat-header-cell>
+    <mat-cell *matCellDef="let product"> {{product.stateComment }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="state_status">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> State Status </mat-header-cell>
+    <mat-cell *matCellDef="let product"> {{product.stateStatus }} </mat-cell>
+  </ng-container>
+
+
+  <ng-container matColumnDef="central_comment">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Central DateTime </mat-header-cell>
+    <mat-cell *matCellDef="let product"> {{product.centralDateTime }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="central_status">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Central DateTime </mat-header-cell>
+    <mat-cell *matCellDef="let product"> {{product.centralStatus}} </mat-cell>
+  </ng-container> -->
+
+</mat-table>

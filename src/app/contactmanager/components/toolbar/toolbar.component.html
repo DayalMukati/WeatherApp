@@ -1,0 +1,28 @@
+<mat-toolbar color="primary">
+
+  <button mat-button class="sidenav-toggle" (click)="toggleSidenav.emit()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <span>Weather Alert System </span>
+
+ 
+
+  <span class="example-spacer"></span>
+  <ul id="nav-mobile" class="right hide-on-med-and-down">
+    <li>
+      <a (click)="Logout()">Logout</a>
+    </li>
+  </ul>
+
+  <button mat-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="openAddContactDialog()">New Contact</button>
+    <button mat-menu-item (click)="toggleTheme.emit()">Toggle theme</button>
+    <button mat-menu-item (click)="toggleDir.emit()">Toggle dir</button>
+  </mat-menu>
+
+</mat-toolbar>

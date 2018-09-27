@@ -1,0 +1,44 @@
+<mat-sidenav-container class="app-sidenav-container" [class.dark-theme]="isDarkTheme" [dir]="dir">
+  <mat-sidenav #sidenav class="app-sidenav mat-elevation-z10" [opened]="!isScreenSmall()" [mode]="isScreenSmall() ? 'over' : 'side'">
+    <mat-toolbar color="primary">
+      Dashboard
+    </mat-toolbar>
+
+    <mat-nav-list>
+      <!-- <mat-list-item > -->
+      <!-- <a matLine [routerLink]="['/contactmanager', user.id]"> -->
+      <!-- <mat-icon></mat-icon> {{ option }} -->
+
+      <!-- <button mat-menu-item (click)="openAddContactDialog()">New Contact</button> -->
+      <mat-list-item (click)="home()" role="listitem">Home</mat-list-item>
+      <mat-list-item *ngIf="isManufacturer"  (click)="openAddContactDialog()" role="listitem">Create Alert</mat-list-item>
+      <!-- <mat-list-item  (click)="updateProduct('1')" role="listitem">Update Alert</mat-list-item> -->
+      <mat-list-item (click)="productHistory('2')" role="listitem">Alert History</mat-list-item>
+      <mat-list-item *ngIf="isManufacturer" (click)="deleteProduct()" role="listitem">Delete Alert</mat-list-item>
+      <mat-list-item (click)="more()" role="listitem">More</mat-list-item>
+
+
+      <!-- </a> -->
+      <!-- </mat-list-item> -->
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  <div class="app-sidenav-content">
+    <app-toolbar (toggleTheme)="toggleTheme()" (toggleSidenav)="sidenav.toggle()" (toggleDir)="toggleDir()">
+    </app-toolbar>
+    <div class="wrapper">
+
+      <div *ngIf="productService.selectedOption=='1'">
+        <app-main-content></app-main-content>
+      </div>
+
+      <div *ngIf="productService.selectedOption=='2'">
+        <app-product-history></app-product-history>
+      </div>
+
+
+    </div>
+  </div>
+
+</mat-sidenav-container>

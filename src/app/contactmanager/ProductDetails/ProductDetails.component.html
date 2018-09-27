@@ -1,0 +1,50 @@
+<h2 mat-dialog-title>Alert Details</h2>
+<mat-dialog-content>
+
+  <div class="example-container">
+    <!-- <p>Product Name : {{product.productName}}</p>
+    <p>Batch Number : {{product.batchNumber}}</p>
+    <p>Barcode : {{product.barcode}}</p>
+    <p>Manufacturer Name : {{product.manufacturerName}}</p>
+    <p>Manufacturing Date : {{product.manufacturingDate | date:'yyyy-MM-dd'}}</p>
+    <p>Expiry Date : {{product.expiryDate | date:'yyyy-MM-dd'}}</p>
+    <p>Ownership : {{product.ownership}}</p>
+    <p>Status : {{product.status}}</p>
+    <p>Quantity : {{product.quantity}}</p>
+    <p>Weight : {{product.weight}}</p>
+    <p>Temperature : {{product.temperature}}</p>
+    <p>Price : {{product.price}}</p>
+    <p>Comments : {{product.comment}}</p> -->
+
+    <mat-list>
+      <mat-list-item> Alert Id : {{product.weatherAlertID}} </mat-list-item> <mat-divider ></mat-divider>
+      <mat-list-item> severity : {{product.severity}} </mat-list-item> <mat-divider></mat-divider>
+      <mat-list-item> Disaster Type : {{product.disasterType}} </mat-list-item> <mat-divider></mat-divider>
+      <mat-list-item> Disaster Origin: {{product.disasterOrigin}} </mat-list-item> <mat-divider></mat-divider>
+      <mat-list-item> Impacted Area : {{product.impactedArea }} </mat-list-item> <mat-divider></mat-divider>
+      <mat-list-item> IMD DateTime : {{product.imdDateTime | date:'yyyy-MM-dd hh:mm'}} </mat-list-item> <mat-divider></mat-divider>
+      <mat-list-item> IMD Comment : {{product.imdComment}} </mat-list-item> <mat-divider></mat-divider>
+      <mat-list-item> State DateTime: {{product.stateDateTime  | date:'yyyy-MM-dd hh:mm'}} </mat-list-item> <mat-divider></mat-divider>
+      <mat-list-item> State Comment : {{product.stateComment}} </mat-list-item> <mat-divider></mat-divider>
+      <mat-list-item> State Status : {{product.stateStatus}} </mat-list-item> <mat-divider></mat-divider>
+      <mat-list-item> Central DateTime : {{product.centralDateTime | date:'yyyy-MM-dd hh:mm'}} </mat-list-item> <mat-divider></mat-divider>
+      <mat-list-item> Central Comment : {{product.centralComment}} </mat-list-item> <mat-divider></mat-divider>
+      <mat-list-item> Central Status : {{product.centralStatus}} </mat-list-item> <mat-divider></mat-divider>
+
+    </mat-list>
+
+  </div>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button color="primary" (click)="dismiss()">
+    <mat-icon>save</mat-icon> OK
+  </button>
+  <!-- <button mat-button color="primary" (click)="approve('2')">
+    <mat-icon>cancel</mat-icon> Reject
+  </button>
+  <button mat-button color="primary" (click)="dismiss()">
+    <mat-icon>cancel</mat-icon> Cancel
+  </button> -->
+
+</mat-dialog-actions>

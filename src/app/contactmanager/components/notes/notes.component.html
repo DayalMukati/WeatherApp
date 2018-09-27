@@ -1,0 +1,84 @@
+<!-- <div>
+<ul>
+  <li *ngFor="let product of productList">
+    <span> {{product.batchNumber}}</span>
+
+  </li>
+</ul>
+
+</div> -->
+<div class="example-container mat-elevation-z8">
+  <div class="example-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+
+  <mat-table #table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="position">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Alert Id </mat-header-cell>
+      <mat-cell *matCellDef="let product"> {{product.weatherAlertID }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Severity </mat-header-cell>
+      <mat-cell *matCellDef="let product"> {{product.severity}} </mat-cell>
+    </ng-container>
+
+     <ng-container matColumnDef="stateStatus">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> State Status </mat-header-cell>
+      <mat-cell *matCellDef="let product"> {{product.stateStatus}} </mat-cell>
+    </ng-container>
+
+     <ng-container matColumnDef="centralStatus">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Central Status </mat-header-cell>
+      <mat-cell *matCellDef="let product"> {{product.centralStatus}} </mat-cell>
+    </ng-container>
+
+     <ng-container matColumnDef="acknowledge">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Acknowledge </mat-header-cell>
+      <!-- <mat-cell *matCellDef="let product"> {{product.batchNumber}} </mat-cell> -->
+      <mat-cell *matCellDef="let product" (click)="acknowledge(product)">
+        <mat-icon>send</mat-icon>
+      </mat-cell>
+    </ng-container>
+
+    <!-- <ng-container matColumnDef="approve_reject">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Acknowledge </mat-header-cell>
+      <mat-cell *matCellDef="let product" (click)="Transfer(product)">
+        <mat-icon>send</mat-icon>
+      </mat-cell>
+    </ng-container> -->
+    <ng-container matColumnDef="details">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Details </mat-header-cell>
+      <!-- <mat-cell *matCellDef="let product"> {{product.batchNumber}} </mat-cell> -->
+      <mat-cell *matCellDef="let product" (click)="details(product)">
+        <mat-icon>send</mat-icon>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="imddate">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Forecast Date </mat-header-cell>
+      <mat-cell *matCellDef="let product"> {{product.imdDateTime | date:'yyyy-MM-dd hh:ss'}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="centraldate">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Central DateTime </mat-header-cell>
+      <mat-cell *matCellDef="let product"> {{product.centralDateTime | date:'yyyy-MM-dd hh:ss'}} </mat-cell>
+    </ng-container> <ng-container matColumnDef="statedate">
+      
+      <mat-header-cell *matHeaderCellDef mat-sort-header> State DateTime </mat-header-cell>
+      <mat-cell *matCellDef="let product"> {{product.stateDateTime | date:'yyyy-MM-dd hh:ss'}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator [pageSize]="2" [pageSizeOptions]="[5, 10, 20]">
+  </mat-paginator>
+</div>
+
+
+
+

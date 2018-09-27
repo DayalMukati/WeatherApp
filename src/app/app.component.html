@@ -1,0 +1,7 @@
+<!-- <div class="container">
+    <router-outlet></router-outlet>
+</div> -->
+
+<div [@slideInOut]="triggerAnimation(outlet)" id="mainContainer">
+  <router-outlet #outlet="outlet"></router-outlet>
+</div>
